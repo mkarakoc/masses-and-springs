@@ -24,6 +24,8 @@ define( function( require ) {
   var TimerNode = require( 'SCENERY_PHET/TimerNode' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  var rulerIconImage = require( 'mipmap!MASSES_AND_SPRINGS/ruler-icon.png' );
+
   /**
    * @param {Bounds2} dragBounds
    * @param {DraggableRulerNode} rulerNode
@@ -86,9 +88,9 @@ define( function( require ) {
     ruler.toImage( function( image ) {
 
       // @private - visible option is used only for reset() in ToolboxPanel.js
-      self.rulerIcon = new Image( image, {
+      self.rulerIcon = new Image( rulerIconImage, {
         cursor: 'pointer',
-        renderer: 'webgl',
+        // renderer: 'webgl', // TODO: document why, and look for another way
         pickable: true,
         scale: 0.1,
         tandem: tandem.createTandem( 'rulerIcon' )
